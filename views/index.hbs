@@ -30,64 +30,40 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="data/create">Create new item</a>
+                    <a class="nav-link" href="data/list">List bill</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="data/list">List product</a>
+                    <a class="nav-link" href="data/create">Create new bill</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
         </div>
-
-        <form action="search" method="GET" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </nav>
 </header>
 
 <body>
-
-    <div class="container mt-4">
+    <div class="container">
+        <div>
+            <h1 style="text-align: center; color:aliceblue">LIST PRODUCT</h1>
+        </div>
         <div class="row row-cols-5">
-
-            {{#each dataItem}} <div class="card mr-5 mt-4" style="width: 18rem;">
-                <a href="data/{{slug}}"><img style="height: 250px;" src="/uploads/images/{{this.img}}"
-                        class="card-img-top" alt="image of {{this.title}}"></a>
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <p class="card-text">{{this.description}}</p>
-                </div>
+            {{#each products}}
+            <div class="card mr-5 mt-4" style="width: 18rem;">
+                <img style="" src="/images/{{this.name}}-GTAV.png" class="card-img-top"
+                    alt="Antique Cavalry Dagge">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{this.price}} $</li>
-                    <li class="list-group-item">Made in: {{this.made}}</li>
-                    <li class="list-group-item">Amount: {{this.amount}}</li>
+                    <li class="list-group-item">{{this.description}}</li>
+                    <li class="list-group-item">
+                        <h6>Product name: </h6> {{this.name}}
+                    </li>
+                    <li class="list-group-item">Amount: 999</li>
                 </ul>
-                {{!-- <div class="card-body">
-                    <table>
-                        <tr>
-                            <td>
-                                <a href="data/edit/{{this.id}}" class="card-link btn btn-success">Update</a>
-                            </td>
-
-                            <td>
-                                <form action="data/{{this.id}}?_method=DELETE" method="POST">
-                                    <button class="card-link btn btn-danger">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
-                </div> --}}
             </div>
-
             {{/each}}
         </div>
     </div>
-
 </body>
 
 
@@ -102,3 +78,45 @@
     crossorigin="anonymous"></script>
 
 </html>
+
+{{!--
+<div class="container mt-4">
+    <div class="row row-cols-5">
+
+        {{#each dataItem}} <div class="card mr-5 mt-4" style="width: 18rem;">
+            <a href="data/{{slug}}"><img style="height: 250px;" src="/uploads/images/{{this.img}}" class="card-img-top"
+                    alt="image of {{this.title}}"></a>
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.phone}}</p>
+                <p class="card-text">{{this.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Product name: {{this.product}}</li>
+                <li class="list-group-item">Amount: {{this.amount}}</li>
+                <li class="list-group-item">Price: {{this.price}} $</li>
+
+            </ul>
+            {{!-- <div class="card-body">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="data/edit/{{this.id}}" class="card-link btn btn-success">Update</a>
+                        </td>
+
+                        <td>
+                            <form action="data/{{this.id}}?_method=DELETE" method="POST">
+                                <button class="card-link btn btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div> --}}
+            {{!--
+        </div>
+
+        {{/each}}
+    </div>
+</div> --}}

@@ -4,7 +4,15 @@ const slug = require('mongoose-slug-generator');
 mongoose.plugin(slug);
 
 const dataSchema = new mongoose.Schema({
-    title: {
+    name: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    product: {
         type: String,
         required: true
     },
@@ -31,7 +39,7 @@ const dataSchema = new mongoose.Schema({
     },
     slug: {
         type: String,
-        slug: "title",
+        slug: "name",
         unique: true,
         slug_padding_size: 2
     }

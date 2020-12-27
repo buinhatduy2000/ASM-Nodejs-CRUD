@@ -7,6 +7,14 @@
     <title>Home page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('/images/Assassins-Creed-Origins-Wallpaper-1024x576.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
 </head>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,28 +29,34 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="create">Create new item</a>
+                    <a class="nav-link" href="/data/create">Create new item</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="list">List product</a>
+                    <a class="nav-link" href="/data/list">List bill</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
         </div>
+        <form action="/data/list/search" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </nav>
 </header>
 
-<body background="/images/hallway-matrix-background-vector.jpg">
+<body>
 
-    <div class="container mt-4" style="background-color: rgb(221, 238, 202);">
+    <div class=" mt-4" style="background-color: rgb(221, 238, 202);">
         <table class="table">
             <thead>
-                <tr>
+                <tr style="text-align: center;">
                     <th scope="col">#</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Avatar image</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Made in</th>
@@ -56,8 +70,10 @@
                 <tr>
                     <th scope="row">{{@index}}</th>
                     <td><img style="height: 80px;" src="/uploads/images/{{this.img}}"></td>
-                    <td>{{this.title}}</td>
-                    <td>{{this.price}}</td>
+                    <td> <a href="/data/{{slug}}">{{this.name}}</a></td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.product}}</td>
+                    <td>{{this.price}} $</td>
                     <td>{{this.amount}}</td>
                     <td>{{this.made}}</td>
                     <td>{{this.timeCreated}}</td>

@@ -38,7 +38,9 @@
     <div class="container mt-4">
         <div class="row no-gutters">
             <div class="col-sm-6 col-md-8">
-                <img src="/uploads/images/{{data.img}}" class="img-fluid img-thumbnail" style="width: 450px;">
+
+                
+                <img src="/uploads/images/{{data.img}}" class="img-fluid img-thumbnail" style="width: 600px;">
             </div>
 
             <div class="col"></div>
@@ -47,11 +49,23 @@
                 <table class="table" style="background-color: antiquewhite;">
                     <tbody>
                         <tr>
-                            <th scope="row">Name of product</th>
-                            <td>{{data.title}}</td>
+                            <th scope="row">Name of Customer</th>
+                            <td>{{data.name}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Price</th>
+                            <th scope="row">Phone number</th>
+                            <td>{{data.phone}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Product name</th>
+                            <td>{{data.product}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Image of product</th>
+                            <td><img style="width: 250px;" src="/images/{{data.product}}-GTAV.png"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price of product</th>
                             <td>{{data.price}} $ <img style="height: 50px" src="https://img.icons8.com/plasticine/2x/money.png"> </td>
                         </tr>
                         <tr>
@@ -74,17 +88,7 @@
                 </table>
             </div>
         </div>
-        <a href="/">
-            <div class="alert alert-success mt-4" role="alert">
-                <h4 style="text-align: center;">Back to home page</h4>
-            </div>
-        </a>
-
-
-
     </div>
-
-
 </body>
 
 
