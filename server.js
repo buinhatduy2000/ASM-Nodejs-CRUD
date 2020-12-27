@@ -61,7 +61,7 @@ app.get('/', async (req, res) => {
         },
         {
             name: 'Musket',
-            description: 'Armed with nothing but muskets and a superiority complex, the Brits took over half the world. Own the gun that built an Empire',
+            description: 'Armed wit nothing but muskets and a superiority complex, the Brits took over half the world. Own the gun that built an Empire',
         },
         {
             name: 'SniperRifle',
