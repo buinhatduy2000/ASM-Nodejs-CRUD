@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/data/create">Create new item</a>
+                    <a class="nav-link" href="/data/create">Create new items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/data/list">List bill</a>
@@ -78,9 +78,9 @@
                     <td>{{this.made}}</td>
                     <td>{{this.timeCreated}}</td>
                     <td>
-                        <a href="edit/{{this.id}}" class="card-link btn btn-success">Update</a>
+                        <a href="/data/edit/{{this.id}}" class="card-link btn btn-success">Update</a>
                         <form action="{{this.id}}?_method=DELETE" method="POST">
-                            <button class="card-link btn btn-danger">
+                            <button class="card-link btn btn-danger" onclick="return confirm('Are you sure you want to delete bill of {{this.name}}?');">
                                 Delete
                             </button>
                         </form>
