@@ -1,4 +1,5 @@
 const express = require('express');
+const hbs = require('hbs');
 
 //bring in mongoose
 const mongoose = require('mongoose');
@@ -21,6 +22,13 @@ mongoose.connect('mongodb+srv://duybngch18459:123%40123a@cluster0.bdarh.mongodb.
 });
 
 //set template engine
+hbs.registerHelper('sum', function (a, b) {
+    return a + b;
+});
+
+hbs.registerHelper('multi', function (c, d) {
+    return c * d;
+});
 
 app.set('view engine', 'hbs');
 app.use(express.urlencoded({extended: false}));

@@ -48,47 +48,50 @@
 
 <body>
 
-    <div class=" mt-4" style="background-color: rgb(221, 238, 202);">
-        <table class="table">
-            <thead>
-                <tr style="text-align: center;">
-                    <th scope="col">#</th>
-                    <th scope="col">Avatar image</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Phone number</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Made in</th>
-                    <th scope="col">Time add</th>
-                    <th scope="col">Option</th>
-                </tr>
-            </thead>
+    <div class="container">
+        <div class=" mt-4" style="background-color: rgb(221, 238, 202);">
+            <table class="table">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th scope="col">#</th>
+                        <th scope="col">Avatar image</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Made in</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Option</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                {{#each dataItem}}
-                <tr>
-                    <th scope="row">{{@index}}</th>
-                    <td><img style="height: 80px;" src="/uploads/images/{{this.img}}"></td>
-                    <td> <a href="/data/{{slug}}">{{this.name}}</a></td>
-                    <td>{{this.phone}}</td>
-                    <td>{{this.product}}</td>
-                    <td>{{this.price}} $</td>
-                    <td>{{this.amount}}</td>
-                    <td>{{this.made}}</td>
-                    <td>{{this.timeCreated}}</td>
-                    <td>
-                        <a href="/data/edit/{{this.id}}" class="card-link btn btn-success">Update</a>
-                        <form action="{{this.id}}?_method=DELETE" method="POST">
-                            <button class="card-link btn btn-danger" onclick="return confirm('Are you sure you want to delete bill of {{this.name}}?');">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                <tbody>
+                    {{#each dataItem}}
+                    <tr>
+                        <th scope="row">{{sum @index 1}}</th>
+                        <td><img style="height: 80px;" src="/uploads/images/{{this.img}}"></td>
+                        <td> <a href="/data/{{slug}}">{{this.name}}</a></td>
+                        <td>{{this.phone}}</td>
+                        <td>{{this.product}}</td>
+                        <td>{{this.price}} $</td>
+                        <td>{{this.amount}}</td>
+                        <td>{{this.made}}</td>
+                        <td>{{multi this.price this.amount }}$</td>
+                        <td>
+                            <a href="/data/edit/{{this.id}}" class="card-link btn btn-success">Update</a>
+                            <form action="{{this.id}}?_method=DELETE" method="POST">
+                                <button class="card-link btn btn-danger"
+                                    onclick="return confirm('Are you sure you want to delete bill of {{this.name}}?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </body>
