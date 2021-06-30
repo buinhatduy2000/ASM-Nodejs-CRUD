@@ -10,7 +10,6 @@ const dataSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true
     },
     product: {
         type: String,

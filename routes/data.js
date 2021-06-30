@@ -69,26 +69,71 @@ router.get('/:slug', async (req, res) => {
 //handles new post
 router.post('/', upload.single('image'), async (req, res) => {
     // console.log(req.body);
-    let data = new Data({
-        name: req.body.name,
-        phone: req.body.phone,
-        product: req.body.product,
-        price: req.body.price,
-        amount: req.body.amount,
-        made: req.body.made,
-        description: req.body.description,
-        img: req.file.filename,
-    });
+
+    const products = [
+        { name: 'AntiqueCavalryDagger' },
+        { name: 'Machete', },
+        { name: 'AssaultRifle', },
+        { name: 'BullpupRifle', },
+        { name: 'CombatPistol', },
+        { name: 'Grenade', },
+        { name: 'Minigun', },
+        { name: 'Musket', },
+        { name: 'SniperRifle', },
+        { name: 'SNSPistol', },
+        { name: 'StunGun', },
+    ]
+    
+
+  
+       let nameA = req.body.name;
+       let phoneA = req.body.phone;
+       let productA = req.body.product;
+       let priceA = req.body.price;
+       let amountA = req.body.amount;
+       let madeA = req.body.made;
+       let descriptionA = req.body.description;
+       let imgA = req.file.filename;
 
 
-    try {
-        data = await data.save();
-        console.log(data.id);
-        console.log(data.slug);
-        res.redirect('data/list');
-    } catch (error) {
-        res.send(error);
+    let errorDescription = null;
+    if(descriptionA.length>10) {
+        errorDescription = "So ky tu nhap vao phai duoi 10"
     }
+    if(descriptionA.length<5)
+    {
+        errorDescription = "So ky tu nhao vao phai tren 5"
+    }
+    if(errorDescription != null)
+    {
+        let errorData = {errorD: errorDescription};
+        res.render('create', { products: products, error: errorData});
+        return;
+    }
+    else
+    {
+        let data = new Data({
+            name: nameA,
+            phone: phoneA,
+            product: productA,
+            price: priceA,
+            amount: amountA,
+            made: madeA,
+            description: descriptionA,
+            img: imgA,
+        });
+
+        try {
+            data = await data.save();
+            console.log(data.id);
+            console.log(data.slug);
+            res.redirect('data/list');
+        } catch (error) {
+            res.send(error);
+        }
+    }
+
+   
 });
 
 router.get('/edit/:id', async (req, res) => {
